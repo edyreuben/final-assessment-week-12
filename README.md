@@ -43,14 +43,24 @@ A responsive, functional dessert menu application built with **React** and **Vit
 
 ## 📸 Screen Designs
 
-The application adapts to three primary screen sizes:
-* **[Mobile](src\assets\images\screenshot-mobile.png)**: Single column layout with a bottom-stacked cart.
-* **[Tablet](src\assets\images\screenshot-tablet.png)**: Two-column product grid.
-* **[Desktop](src\assets\images\screenshot-desktop.png)**: Three-column product grid with a fixed sidebar cart for easy access.
+The application adapts to three primary screen sizes. Below are the previews for Mobile, Tablet, and Desktop views:
+
+| Mobile View | Tablet View | Desktop View |
+| :---: | :---: | :---: |
+| <img src="screenshot-mobile.png" width="200" alt="Mobile View"> | <img src="screenshot-tablet.png" width="350" alt="Tablet View"> | <img src="screenshot-desktop.png" width="500" alt="Desktop View"> |
+| *Single column layout* | *Two-column product grid* | *Three-column grid with sidebar* |
+
 
 ## 📝 Persistence Logic
 
 The app uses a custom `useEffect` hook to synchronize the application state with the browser's `localStorage`. This ensures that users do not lose their selections if they accidentally navigate away or refresh the browser.
+```jsx
+    // Initialize state from LocalStorage
+    const [cart, setCart] = useState(() => {
+        const savedCart = localStorage.getItem('product_cart');
+        return savedCart ? JSON.parse(savedCart) : [];
+    });
+```
 
 ## 💡 What I Learned
 
