@@ -1,18 +1,17 @@
 import { useState, useEffect } from 'react';
-import data from './data.json';
+import data from './data.json'; // Use relative path for JSON
 import './index.css';
 
-// Icons & Illustrations
-import addToCartIcon from './assets/images/icon-add-to-cart.svg';
-import removeItemIcon from './assets/images/icon-remove-item.svg';
-import incrementIcon from './assets/images/icon-increment-quantity.svg';
-import decrementIcon from './assets/images/icon-decrement-quantity.svg';
-import carbonNeutralIcon from './assets/images/icon-carbon-neutral.svg';
-import emptyCartImg from './assets/images/illustration-empty-cart.svg';
-import confirmedIcon from './assets/images/icon-order-confirmed.svg';
+// Reference public assets directly via root-relative strings
+const addToCartIcon = '/images/icon-add-to-cart.svg';
+const removeItemIcon = '/images/icon-remove-item.svg';
+const incrementIcon = '/images/icon-increment-quantity.svg';
+const decrementIcon = '/images/icon-decrement-quantity.svg';
+const carbonNeutralIcon = '/images/icon-carbon-neutral.svg';
+const emptyCartImg = '/images/illustration-empty-cart.svg';
+const confirmedIcon = '/images/icon-order-confirmed.svg';
 
 function App() {
-  // 1. Initialize state from LocalStorage
   const [cart, setCart] = useState(() => {
     const savedCart = localStorage.getItem('product_cart');
     return savedCart ? JSON.parse(savedCart) : [];
@@ -20,7 +19,6 @@ function App() {
   
   const [isOrderConfirmed, setIsOrderConfirmed] = useState(false);
 
-  // 2. Update LocalStorage whenever the cart state changes
   useEffect(() => {
     localStorage.setItem('product_cart', JSON.stringify(cart));
   }, [cart]);
@@ -48,7 +46,7 @@ function App() {
 
   const handleStartNewOrder = () => {
     setCart([]);
-    localStorage.removeItem('product_cart'); // Clear storage on reset
+    localStorage.removeItem('product_cart');
     setIsOrderConfirmed(false);
     window.scrollTo(0, 0);
   };
@@ -56,8 +54,6 @@ function App() {
   return (
     <main className="app-container">
       <div className="content-wrapper">
-        
-        {/* Product List Section */}
         <section className="products-section">
           <h1 className="main-title">Desserts</h1>
           <div className="product-grid">
@@ -104,7 +100,6 @@ function App() {
           </div>
         </section>
 
-        {/* Sidebar Cart Section */}
         <aside className="cart-container">
           <h2 className="cart-title">Your Cart ({cartCount})</h2>
           {cart.length === 0 ? (
@@ -147,7 +142,6 @@ function App() {
         </aside>
       </div>
 
-      {/* Order Confirmation Modal */}
       {isOrderConfirmed && (
         <div className="modal-overlay">
           <div className="modal-content">

@@ -47,7 +47,7 @@ The application adapts to three primary screen sizes. Below are the previews for
 
 | Mobile View | Tablet View | Desktop View |
 | :---: | :---: | :---: |
-| <img src="screenshot-mobile.png" width="200" alt="Mobile View"> | <img src="screenshot-tablet.png" width="350" alt="Tablet View"> | <img src="screenshot-desktop.png" width="500" alt="Desktop View"> |
+| <img src="public\screenshot-mobile.png" width="200" alt="Mobile View"> | <img src="public\screenshot-tablet.png" width="350" alt="Tablet View"> | <img src="public\screenshot-desktop.png" width="500" alt="Desktop View"> |
 | *Single column layout* | *Two-column product grid* | *Three-column grid with sidebar* |
 
 
